@@ -48,32 +48,22 @@ def process_random_integer():
     return num
 
 def find_divisors(num):
+    """
+    Find all integers between 1 and 10 (inclusive) that evenly divide the input number.
+
+    Args:
+        num (int): The number for which to find divisors.
+
+    Returns:
+        list[int]: A list of integers between 1 and 10 that evenly divide the input.
+
+    Raises:
+        TypeError: If the input is not an integer.
+
+    """
     if not isinstance(num, int):
         raise TypeError("Input must be an integer")
     return [i for i in range(1, 11) if num % i == 0]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 def test_should_return_square_root():
     assert square_root(4) == 2
@@ -94,7 +84,7 @@ def test_should_return_process_random_integer(monkeypatch):
     monkeypatch.setattr(random, 'randint', lambda a, b: 3)  
     assert process_random_integer() == 2.0
 
-def test_find_divisors():
+def test_should_find_divisors():
     assert find_divisors(10) == [1, 2, 5, 10]
     assert find_divisors(6) == [1, 2, 3, 6]
     assert find_divisors(1) == [1]
