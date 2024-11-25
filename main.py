@@ -89,3 +89,12 @@ def test_should_return_process_random_integer(monkeypatch):
 
     monkeypatch.setattr(random, 'randint', lambda a, b: 3)  
     assert process_random_integer() == 2.0
+
+def test_find_divisors():
+    assert find_divisors(10) == [1, 2, 5, 10]
+    assert find_divisors(6) == [1, 2, 3, 6]
+    assert find_divisors(1) == [1]
+    try:
+        find_divisors("string")
+    except TypeError as e:
+        assert str(e) == "Input must be an integer"
