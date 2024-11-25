@@ -52,3 +52,13 @@ def test_should_return_square_root():
         square_root(-1)
     except ValueError as e:
         assert str(e) == "Cannot calculate square root of a negative number"
+
+def test_should_return_process_random_integer(monkeypatch):
+    monkeypatch.setattr(random, 'randint', lambda a, b: 5)  
+    try:
+        process_random_integer()
+    except ValueError as e:
+        assert str(e) == "Number exceeds the allowed limit after processing."
+
+    monkeypatch.setattr(random, 'randint', lambda a, b: 3)  
+    assert process_random_integer() == 2.0
