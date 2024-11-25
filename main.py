@@ -47,6 +47,10 @@ def process_random_integer():
         raise ValueError("Number exceeds the allowed limit after processing.")
     return num
 
+def find_divisors(num):
+    if not isinstance(num, int):
+        raise TypeError("Input must be an integer")
+    return [i for i in range(1, 11) if num % i == 0]
 
 
 
