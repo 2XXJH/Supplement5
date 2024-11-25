@@ -19,6 +19,22 @@ def square_root(num):
     return math.sqrt(num)
 
 def process_random_integer():
+    """
+    Generate and process a random integer between 1 and 100 based on specific rules:
+        - If odd, multiply by 2.
+        - If divisible by 3, divide by 3.
+        - If divisible by 4, multiply by 4.
+        - If the result exceeds 4, raise an exception.
+
+    Returns:
+        float or int: The processed number if valid.
+
+    Raises:
+        ValueError: If the processed number exceeds 4.
+
+        >>> process_random_integer()
+        Raises ValueError or returns a processed number within the range.
+    """
     num = random.randint(1, 100)
 
     if num % 2 == 1:
