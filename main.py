@@ -18,7 +18,18 @@ def square_root(num):
         raise ValueError("Cannot calculate square root of a negative number")
     return math.sqrt(num)
 
+def process_random_integer():
+    num = random.randint(1, 100)
 
+    if num % 2 == 1:
+        num *= 2
+    if num % 3 == 0:
+        num /= 3
+    if num % 4 == 0:
+        num *= 4
+    if num > 4:
+        raise ValueError("Number exceeds the allowed limit after processing.")
+    return num
 
 
 
